@@ -1,0 +1,37 @@
+{
+  "name": "mobileevent-backend",
+  "version": "1.0.0",
+  "description": "Backend for mobileEvent mobile app.",
+  "main": "src/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.ts",
+    "build": "rm -rf dist/ && tsc",
+    "start": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielBarczyk/mobileEvent-backend.git"
+  },
+  "author": "Daniel Barczyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielBarczyk/mobileEvent-backend/issues"
+  },
+  "homepage": "https://github.com/DanielBarczyk/mobileEvent-backend#readme",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
+    "axios": "^0.27.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0"
+  }
+}

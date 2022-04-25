@@ -1,0 +1,32 @@
+USE mobile_eventV1;
+
+CREATE TABLE `EventsV1` (
+  `eventId` int NOT NULL,
+  `eventDate` varchar(255) NOT NULL,
+  `eventName` varchar(255) NOT NULL,
+  `eventDescription` varchar(255) DEFAULT NULL,
+  `eventLocation` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`eventId`)
+);
+
+CREATE TABLE `UsersV1` (
+  `userId` int NOT NULL,
+  `userName` varchar(255) NOT NULL,
+  PRIMARY KEY (`userId`)
+);
+
+CREATE TABLE `UserEventsV1` (
+  `id` int NOT NULL,
+  `userId` int NOT NULL,
+  `eventId` int NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+Insert into UsersV1 (userId, userName) VALUES ('1', 'TestUser1');
+Insert into UsersV1 (userId, userName) VALUES ('2', 'TestUser2');
+
+Insert into EventsV1 (eventId, eventDate, eventName, eventDescription, eventLocation)
+VALUES ('1', '2022-04-25T22:51:07.007Z', 'Juwenalia Krakowskie 2022', 'Zapraszamy na Juwenalia!', 'Krakow');
+
+Insert into EventsV1 (eventId, eventDate, eventName, eventDescription, eventLocation)
+VALUES ('2', '2022-04-25T22:51:07.007Z', 'Juwenalia Warszawskie 2022', 'Zapraszamy na Juwenalia!', 'Warszawa');
