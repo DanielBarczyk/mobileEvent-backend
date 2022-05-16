@@ -1,9 +1,11 @@
 export interface Event {
-    eventId: String;
+    eventId: Number;
     eventDate: Date;
     eventName: String;
     eventDescription: String;
     eventLocation: String|undefined;
+    latitude: Number|undefined;
+    longitude: Number|undefined;
 }
 
 export interface User {

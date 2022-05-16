@@ -6,6 +6,8 @@ CREATE TABLE `EventsV1` (
   `eventName` varchar(255) NOT NULL,
   `eventDescription` varchar(255) DEFAULT NULL,
   `eventLocation` varchar(255) DEFAULT NULL,
+  `latitude` double precision DEFAULT NULL,
+  `longitude` double precision DEFAULT NULL,
   PRIMARY KEY (`eventId`)
 );
 
@@ -25,8 +27,8 @@ CREATE TABLE `UserEventsV1` (
 Insert into UsersV1 (userId, userName) VALUES ('1', 'TestUser1');
 Insert into UsersV1 (userId, userName) VALUES ('2', 'TestUser2');
 
-Insert into EventsV1 (eventId, eventDate, eventName, eventDescription, eventLocation)
-VALUES ('1', '2022-04-25T22:51:07.007Z', 'Juwenalia Krakowskie 2022', 'Zapraszamy na Juwenalia!', 'Krakow');
+Insert into EventsV1 (eventId, eventDate, eventName, eventDescription, eventLocation, latitude, longitude)
+VALUES ('1', '2022-04-25T22:51:07.007Z', 'Juwenalia Krakowskie 2022', 'Zapraszamy na Juwenalia!', 'Krakow', 50.049683, 19.944544);
 
-Insert into EventsV1 (eventId, eventDate, eventName, eventDescription, eventLocation)
-VALUES ('2', '2022-04-25T22:51:07.007Z', 'Juwenalia Warszawskie 2022', 'Zapraszamy na Juwenalia!', 'Warszawa');
+Insert into EventsV1 (eventId, eventDate, eventName, eventDescription, eventLocation, latitude, longitude)
+VALUES ('2', '2022-04-25T22:51:07.007Z', 'Juwenalia Warszawskie 2022', 'Zapraszamy na Juwenalia!', 'Warszawa', 52.237049, 21.017532);

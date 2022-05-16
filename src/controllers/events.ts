@@ -5,7 +5,9 @@ const getEvents = async (req: Request, res: Response, next: NextFunction) => {
     const query = 'SELECT * FROM EventsV1';
 
     connection.query(query, (err, results, fields) => {
-        res.status(200).json(results);
+        res.status(200).json({
+            events: results
+        });
     });
 };
 
