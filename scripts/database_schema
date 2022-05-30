@@ -1,34 +1,37 @@
 USE mobile_eventV1;
 
-CREATE TABLE `EventsV1` (
+CREATE TABLE `Events` (
   `eventId` int NOT NULL,
   `eventDate` varchar(255) NOT NULL,
   `eventName` varchar(255) NOT NULL,
   `eventDescription` varchar(255) DEFAULT NULL,
   `eventLocation` varchar(255) DEFAULT NULL,
+  `eventCategory` varchar(255) DEFAULT NULL,
   `latitude` double precision DEFAULT NULL,
   `longitude` double precision DEFAULT NULL,
   PRIMARY KEY (`eventId`)
 );
 
-CREATE TABLE `UsersV1` (
+CREATE TABLE `Users` (
   `userId` int NOT NULL,
   `userName` varchar(255) NOT NULL,
   PRIMARY KEY (`userId`)
 );
 
-CREATE TABLE `UserEventsV1` (
-  `id` int NOT NULL,
+CREATE TABLE `Tickets` (
+  `ticketId` int NOT NULL,
   `userId` int NOT NULL,
   `eventId` int NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`ticketId`)
 );
 
-Insert into UsersV1 (userId, userName) VALUES ('1', 'TestUser1');
-Insert into UsersV1 (userId, userName) VALUES ('2', 'TestUser2');
+Insert into Users (userId, userName) VALUES ('1', 'TestUser1');
+Insert into Users (userId, userName) VALUES ('2', 'TestUser2');
 
-Insert into EventsV1 (eventId, eventDate, eventName, eventDescription, eventLocation, latitude, longitude)
-VALUES ('1', '2022-04-25T22:51:07.007Z', 'Juwenalia Krakowskie 2022', 'Zapraszamy na Juwenalia!', 'Krakow', 50.049683, 19.944544);
+Insert into Events (eventId, eventDate, eventName, eventDescription, eventLocation, eventCategory, latitude, longitude)
+VALUES ('1', '2022-04-25T22:51:07.007Z', 'Juwenalia Krakowskie 2022', 'Zapraszamy na Juwenalia!', 'Krakow', 'concert', 50.049683, 19.944544);
 
-Insert into EventsV1 (eventId, eventDate, eventName, eventDescription, eventLocation, latitude, longitude)
-VALUES ('2', '2022-04-25T22:51:07.007Z', 'Juwenalia Warszawskie 2022', 'Zapraszamy na Juwenalia!', 'Warszawa', 52.237049, 21.017532);
+Insert into Events (eventId, eventDate, eventName, eventDescription, eventLocation, eventCategory, latitude, longitude)
+VALUES ('2', '2022-04-25T22:51:07.007Z', 'Juwenalia Warszawskie 2022', 'Zapraszamy na Juwenalia!', 'Warszawa', 'concert', 52.237049, 21.017532);
+
+Insert into Tickets (ticketId, userId, eventId) VALUES ('1', '2', '1');

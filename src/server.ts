@@ -3,6 +3,10 @@ import express, { Express } from 'express';
 import morgan from 'morgan';
 import userRouter from './routes/users';
 import eventRouter from './routes/events';
+import { init } from './init';
+
+/** Initialize database */
+init();
 
 const router: Express = express();
 

@@ -13,3 +13,9 @@ export interface User {
     userName: String;
     userEvents: String[];
 }
+
+export interface Ticket {
+    ticketId: Number;
+    userId: Number;
+    eventId: Number;
+}

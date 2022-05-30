@@ -4,5 +4,6 @@ const router = express.Router();
 
 router.get('/', controller.getEvents);
 router.get('/:eventId', controller.getEvent);
+router.post('/', controller.addEvent);
 
 export = router;
