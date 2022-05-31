@@ -28,6 +28,8 @@ const getEvent = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const addEvent = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.body);
+
     const eventDate: String = req.body.eventDate;
     const eventName: String = req.body.eventName;
     const eventDescription: String = req.body.eventDescription;
@@ -37,9 +39,10 @@ const addEvent = async (req: Request, res: Response, next: NextFunction) => {
     const longitude: Number = req.body.longitude;
     const eventId: Number = getEventSize();
 
-    const query = `Insert into Events (eventId, eventDate, eventName, eventDescription, eventLocation, eventCategory, latitude, longitude) VALUES (${eventId}, ${eventDate}, ${eventName}, ${eventDescription}, ${eventLocation}, ${eventCategory}, ${latitude}, ${longitude})`;
-    
+    const query = `Insert into Events (eventId, eventDate, eventName, eventDescription, eventLocation, eventCategory, latitude, longitude) VALUES (${eventId}, "${eventDate}", "${eventName}", "${eventDescription}", "${eventLocation}", "${eventCategory}", ${latitude}, ${longitude})`;
+    console.log(query);    
     connection.query(query, (err, results, fields) => {
+        console.log(results);
         res.status(200).json({
             status: '200'
         });

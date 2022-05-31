@@ -10,15 +10,15 @@ export function init() {
     const ticketQuery = 'SELECT COUNT(*) AS count FROM Tickets';
 
     connection.query(eventQuery, (err, results, fields) => {
-        EVENT_SIZE = JSON.parse(JSON.stringify(results)).count;
+        EVENT_SIZE = JSON.parse(JSON.stringify(results))[0].count;	
     });
 
     connection.query(userQuery, (err, results, fields) => {
-        USER_SIZE = JSON.parse(JSON.stringify(results)).count;
+        USER_SIZE = JSON.parse(JSON.stringify(results))[0].count;
     });
 
     connection.query(ticketQuery, (err, results, fields) => {
-        TICKET_SIZE = JSON.parse(JSON.stringify(results)).count;
+        TICKET_SIZE = JSON.parse(JSON.stringify(results))[0].count;
     });
 }
 
