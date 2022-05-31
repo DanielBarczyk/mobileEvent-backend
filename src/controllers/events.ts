@@ -6,7 +6,7 @@ const getEvents = async (req: Request, res: Response, next: NextFunction) => {
     let query = 'SELECT * FROM Events';
 
     if (req.query.category) {
-        query += ` WHERE eventCategory=${req.query.category}`
+        query += ` WHERE eventCategory="${req.query.category}"`
     } else if (req.query.user) {
         query += ` INNER JOIN Tickets USING (eventId) WHERE userId=${req.query.user}`;
     } else if (req.query.latitude && req.query.longitude) {
