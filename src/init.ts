@@ -5,6 +5,20 @@ let USER_SIZE: number;
 let TICKET_SIZE: number;
 
 export function init() {
+    if (!process.env.DATABASE_NAME) {
+        throw new Error("DATABASE_NAME not set");
+    }
+    if (!process.env.DATABASE_HOST) {
+        throw new Error("DATABASE_HOST not set");
+    }
+    if (!process.env.DATABASE_USER) {
+        throw new Error("DATABASE_USER not set");
+    }
+    if (!process.env.DATABASE_PASSWORD) {
+        throw new Error("DATABASE_PASSWORD not set");
+    }
+
+
     const eventQuery = 'SELECT COUNT(*) AS count FROM Events';
     const userQuery = 'SELECT COUNT(*) AS count FROM Users';
     const ticketQuery = 'SELECT COUNT(*) AS count FROM Tickets';
@@ -35,8 +49,4 @@ export function getUserSize() {
 export function getTicketSize() {
     TICKET_SIZE++;
     return TICKET_SIZE;
-}
-
-interface count {
-    count: Number;
 }

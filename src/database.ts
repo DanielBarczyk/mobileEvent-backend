@@ -1,10 +1,10 @@
 import mysql2 from 'mysql2';
 
 const connection = mysql2.createConnection({
-    host: 'localhost',
-    user: 'dbarczyk',
-    database: 'mobile_eventV1',
-    password: 'x8vemkgg'
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    database: process.env.DATABASE_NAME,
+    password: process.env.DATABASE_PASSWORD 
   });
 connection.connect();
 
