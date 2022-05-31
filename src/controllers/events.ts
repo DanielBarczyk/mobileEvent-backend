@@ -9,9 +9,13 @@ const getEvents = async (req: Request, res: Response, next: NextFunction) => {
         query += ` WHERE eventCategory=${req.query.category}`
     } else if (req.query.user) {
         query += ` INNER JOIN Tickets USING (eventId) WHERE userId=${req.query.user}`;
+    } else if (req.query.latitude && req.query.longitude) {
+        query += ` WHERE latitude >=${Number(req.query.latitude) - 1.0} AND latitude <= ${Number(req.query.latitude) + 1.0} AND longitude >= ${Number(req.query.longitude) - 1.0} AND longitude <= ${Number(req.query.longitude) + 1.0}`
     }
 
+    console.log(query)
     connection.query(query, (err, results, fields) => {
+        console.log(results)
         res.status(200).json({
             events: results
         });
